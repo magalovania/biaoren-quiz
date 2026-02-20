@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测一测你是镖人中的哪个角色</title>
+  <meta name="description" content="12道题测出你的镖人灵魂角色，看看你是刀马、阿育亚、竖、燕子娘还是常贵人">
+  <meta property="og:title" content="测一测你是镖人中的哪个角色">
+  <meta property="og:description" content="12道题测出你的镖人灵魂角色">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@300;600&display=swap" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <section id="intro" class="page active">
+      <div class="container">
+        <div class="logo">
+          <span class="logo-text">镖人</span>
+          <span class="logo-sub">角色测试</span>
+        </div>
+        <h1 class="title">测一测你是<br><span class="highlight">镖人</span>中的哪个角色</h1>
+        <p class="subtitle">12道题 · 约1分钟 · 揭示你的江湖灵魂</p>
+        <button class="btn-primary" id="startBtn">
+          <span class="btn-text">开始测试</span>
+          <span class="btn-icon">→</span>
+        </button>
+        <p class="stats">已有 <span id="totalUsers">12,847</span> 人完成测试</p>
+      </div>
+    </section>
+
+    <section id="quiz" class="page">
+      <div class="container">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-text" id="progressText">1/12</span>
+        </div>
+        
+        <div class="question-card" id="questionCard">
+          <div class="question-number" id="questionNumber">01</div>
+          <h2 class="question-text" id="questionText"></h2>
+          <div class="options" id="options"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="loading" class="page">
+      <div class="container loading-container">
+        <div class="loading-silhouette" id="loadingSilhouette"></div>
+        <p class="loading-text">正在匹配你的灵魂角色...</p>
+        <div class="loading-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="result" class="page">
+      <div class="container">
+        <div class="result-card">
+          <div class="result-image-container">
+            <div class="result-image" id="resultImage"></div>
+            <div class="result-glow"></div>
+          </div>
+          <div class="result-content">
+            <div class="result-badge">你的灵魂角色</div>
+            <h2 class="result-name" id="resultName"></h2>
+            <div class="result-match">
+              <span class="match-number" id="matchNumber">0</span>
+              <span class="match-percent">%</span>
+              <span class="match-label">匹配度</span>
+            </div>
+            <p class="result-quote" id="resultQuote"></p>
+            <div class="result-traits" id="resultTraits"></div>
+            <div class="result-radar">
+              <canvas id="radarChart" width="240" height="240"></canvas>
+            </div>
+          </div>
+        </div>
+        
+        <div class="result-actions">
+          <button class="btn-secondary" id="retryBtn">
+            <span>重新测试</span>
+          </button>
+          <button class="btn-primary" id="shareBtn">
+            <span>分享结果</span>
+          </button>
+        </div>
+        
+        <div class="character-intro" id="characterIntro">
+          <h3>关于 <span id="introName"></span></h3>
+          <p id="introDesc"></p>
+        </div>
+      </div>
+    </section>
+
+    <div id="shareModal" class="modal">
+      <div class="modal-content">
+        <h3>分享你的测试结果</h3>
+        <div class="share-options">
+          <button class="share-btn" id="saveImageBtn">
+            <span class="share-icon">📷</span>
+            <span>保存图片</span>
+          </button>
+          <button class="share-btn" id="copyLinkBtn">
+            <span class="share-icon">🔗</span>
+            <span>复制链接</span>
+          </button>
+        </div>
+        <button class="modal-close" id="closeModal">×</button>
+      </div>
+    </div>
+
+    <canvas id="posterCanvas" style="display:none;"></canvas>
+  </div>
+
+  <script src="./js/app.js" type="module"></script>
+</body>
+</html>
