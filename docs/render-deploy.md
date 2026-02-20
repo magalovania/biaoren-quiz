@@ -1,5 +1,19 @@
 # Render 部署指南
 
+## 什么是 Build Command 和 Publish directory？
+
+### Build Command（构建命令）
+- 用于告诉 Render 如何构建你的项目
+- 如果是 React/Vue 等项目，需要运行如 `npm run build`
+- **你的项目是纯静态网站，不需要构建，所以留空**
+
+### Publish directory（发布目录）
+- 填写要对外提供服务的文件夹路径
+- 你的项目 `index.html` 在根目录 `.`
+- 所以填写 `.` 表示发布整个根目录
+
+---
+
 ## 部署步骤
 
 ### 1. 准备 Render 账号
